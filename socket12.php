@@ -4,7 +4,7 @@ class Socket {
 	public $from="";
 	public $port=0;
 	public $host='192.168.2.63';
-	public $socket_port='5060';
+	public $socket_port='5062';
     /**
      * Domain type to use when creating the socket
      * @var int
@@ -67,7 +67,9 @@ class Socket {
          //   throw new SocketException("Unable to create Socket. PHP said, " . $this->getLastError(), socket_last_error());
          echo "Hata\n";
         }
-        if(socket_bind($this->link,$this->host,$this-socket_port)==false)
+        echo $this->host;
+        echo $this->socket_port;
+        if(socket_bind($this->link,$this->host,$this->socket_port)==false)
         echo "Hata2\n";
         
         if(!socket_set_option($this->link, SOL_SOCKET, SO_RCVTIMEO, array("sec"=>7,"usec"=>0)))
